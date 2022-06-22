@@ -1,6 +1,6 @@
 import React from 'react'
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import logo from '../../assets/imagenlogo.jpg'
+import logo from '../../img/imagenlogo.jpg'
+import CartWidget from './CartWidget'
 
 
 const NavBar = () => {
@@ -17,10 +17,10 @@ return (
         <a style={style.anchor} href="">Categoria 3</a>
         <a style={style.anchor} href="">Contacto</a>
 
-        <LocalGroceryStoreIcon color="primary" fontSize="large" />
+        
 
+        <CartWidget />
     </nav>
-
 
     </>
     
