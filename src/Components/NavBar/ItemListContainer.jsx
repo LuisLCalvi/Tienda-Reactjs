@@ -1,12 +1,15 @@
 import react from 'react'
 
+import ItemCount from './ItemCount'
 
-const ItemListContainer = () =>{
-
+const ItemListContainer = () => {
     return (
-        2
-        )
+        <>
+        <h2></h2>
 
+        <ItemCount stock={10}/>
+        </>
+    )
 }
 
 export default ItemListContainer
