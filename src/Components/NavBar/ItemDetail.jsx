@@ -8,7 +8,7 @@ const ItemDetail = ({ product }) => {
             <div style={styles.infoTextContainer}>
                 <div style={styles.infoText}>
                     <h1>{product.title}</h1>
-                    <span>${product.price}</span>
+                    <h4>{product.price}</h4>
                     <p>{product.description}</p>
                 </div>
                 <ItemCount/>

@@ -3,7 +3,7 @@ import ItemList from './ItemList';
 import ItemDetailsContainer from './ItemDetailsContainer';
 
 
-export const ItemListContainer = ({ greeting }) => {
+export const ItemListContainer = () => {
 
     const [products, setProducts] = useState([]);
 
