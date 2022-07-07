@@ -1,20 +1,27 @@
-import react from 'react'
-import ItemCount from './ItemCount'
-import ItemList from './ItemList'
+import React, { useEffect, useState } from 'react'
+import ItemList from './ItemList';
+import ItemDetailsContainer from './ItemDetailsContainer';
 
 
-const ItemListContainer = () => {
+export const ItemListContainer = ({ greeting }) => {
 
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+            .catch(err => console.log(err))
+    }, []);
 
     return (
         <>
-        <h2></h2>
-        
-        <ItemList/>
+            <ItemList products={products} />
+            <ItemDetailsContainer/>
 
-        <ItemCount stock={10}/>
         </>
     )
 }
+
 
 export default ItemListContainer

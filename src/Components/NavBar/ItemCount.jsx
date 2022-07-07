@@ -26,20 +26,14 @@ const ItemCount = ({ stock, initial = 1 }) => {
     return (
         <>
         <div style={style.container}>
-
-            <h2 style={style.titlecontainer}>PRODUCTO</h2>
             <div style={style.containerAdd}>
                 <button onClick={quitar}>-</button>
-                <p> { contador } </p>
+                <p style={style.containerContador}> { contador } </p>
                 <button onClick={agregar}>+</button>
             </div>
             <button onClick={onAdd}>Agregar al Carrito</button>
 
         </div>
-        
-
-
-
         </>
 
     )
@@ -48,25 +42,24 @@ const ItemCount = ({ stock, initial = 1 }) => {
 const style = {
 
     container:{
-        display: 'grid',
+        display: 'flex',
+        flexDirection: 'column',
         alingItems: 'center',
-        height: '200px',
-        width: '170px',
-        border: '1px black solid',
+        height: '30px',
+        width: '260px',
         padding: '5px'
-    },
-
-    titlecontainer:{
-        fontSize: '25px',
     },
 
     containerAdd:{
         display: 'flex',
         justifyContent: 'space-between',
+        marginBottom: '0',
+        height: '20px',
         padding: '5px',
-        width: '160px',
-        height: '40px',
         backgroundColor: 'rgb(235, 235, 235)',
+    },
+    containerContador:{
+        marginTop: '-1px',
     }
 }
 
