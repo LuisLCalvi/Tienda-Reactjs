@@ -1,27 +1,34 @@
 import React from 'react'
 import logo from '../../img/imagenlogo.png'
 import CartWidget from './CartWidget'
+import { Link, NavLink } from "react-router-dom";
+
 
 
 const NavBar = () => {
+
+
+    const categories = [
+        { name: "electronics", id: 0, route: "/category/electronics" },
+        { name: "jewelery", id: 1, route: "/category/jewelery" },
+        { name: "men's clothing", id: 2, route: "/category/men's clothing" },
+        { name: "women's clothing", id: 3, route: "/category/women's clothing" },
+    ];
+
 return (
     
-    <>  
-        
-        <nav style={style.navStyle}>
-        <img style={style.imagenstyle} src = {logo} alt=""  />
-        <h1 style ={style.h2Style}>TIENDA SHOP</h1> 
+    <>
 
-        <a style={style.anchor} href="">Nosotros</a>
-        <a style={style.anchor} href="">Categoria 1</a>
-        <a style={style.anchor} href="">Categoria 2</a>
-        <a style={style.anchor} href="">Categoria 3</a>
-        <a style={style.anchor} href="">Contacto</a>
-
-        
-
-        <CartWidget />
+    
+    <nav style={style.navStyle}>
+    
+    <img style={style.imagenstyle} src = {logo} alt=""  />
+    <h1 style ={style.h2Style}>TIENDA SHOP</h1>
+    {categories.map((category) => <NavLink key={category.id} to={category.route}>{category.name}</NavLink>)}
+    <Link to="./Cart.js"><CartWidget /></Link> 
     </nav>
+    
+        
 
     </>
     
@@ -50,12 +57,10 @@ const style = {
     navStyle: {
         listStyle: 'none',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         backgroundColor: 'rgb(235, 235, 235)',
     },
 
-    anchor:{
-        margin: 10,
-        alingItems: 'center',
-    }
+
+
 }

@@ -9,6 +9,7 @@ export const ItemDetailsContainer = () => {
     const { productId } = useParams();
 
     useEffect(() => {
+        
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then(res=>res.json())
             .then(data=>setProduct(data))

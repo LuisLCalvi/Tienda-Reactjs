@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCount from './ItemCount'
+import ItemCount from '../Components/NavBar/ItemCount'
 
 const ItemDetail = ({ product }) => {
     return (
@@ -8,10 +8,11 @@ const ItemDetail = ({ product }) => {
             <div style={styles.infoTextContainer}>
                 <div style={styles.infoText}>
                     <h1>{product.title}</h1>
-                    <h4>{product.price}</h4>
+                    <h4>${product.price}</h4>
                     <p>{product.description}</p>
+                    <ItemCount/>
+
                 </div>
-                <ItemCount/>
 
             </div>
         </div>
@@ -26,18 +27,19 @@ const styles = {
         alignItems: "center"
     },
     img: {
-        width: "40%"
+        width: "30%"
     },
     infoTextContainer: {
         display: "flex",
         flexDirection: "column",
     },
     infoText: {
+        fontFamily: 'arial',
         padding: "10px",
         marging: "10px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
     }
 };
 

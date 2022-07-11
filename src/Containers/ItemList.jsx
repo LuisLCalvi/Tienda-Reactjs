@@ -16,9 +16,9 @@ const ItemList = ({ products }) => {
 export default ItemList
 
 
+
 const styles = {
     container: {
-        width: '350px',
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-around",
