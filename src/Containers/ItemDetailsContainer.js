@@ -10,6 +10,7 @@ export const ItemDetailsContainer = () => {
 
     useEffect(() => {
         
+        
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then(res=>res.json())
             .then(data=>setProduct(data))

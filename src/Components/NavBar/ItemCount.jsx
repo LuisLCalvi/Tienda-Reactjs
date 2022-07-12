@@ -1,8 +1,8 @@
-import react, { useState } from 'react'
+import React, {useState} from "react";
 
 
 
-const ItemCount = ({ stock, initial = 1 }) => {
+const ItemCount = ({ stock, onAdd, initial = 1 }) => {
 
     const [contador, setContador] = useState (initial)
 
@@ -16,11 +16,12 @@ const ItemCount = ({ stock, initial = 1 }) => {
         contador > initial && setContador (contador - 1)
     }
 
-    const onAdd = () =>{
+    const agregarAlCarrito = () =>{
+        onAdd (contador);
+        
+        // contador <= 2 && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "productos")
 
-        contador <= 2 && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "productos")
-
-        contador = initial && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "producto")
+        // contador = initial && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "producto")
     }
 
     return (
@@ -31,7 +32,7 @@ const ItemCount = ({ stock, initial = 1 }) => {
                 <p style={style.containerContador}> { contador } </p>
                 <button onClick={agregar}>+</button>
             </div>
-            <button onClick={onAdd}>Agregar al Carrito</button>
+            <button onClick={agregarAlCarrito}>Agregar al Carrito</button>
 
         </div>
         </>
