@@ -22,7 +22,10 @@ return (
     
     <nav style={style.navStyle}>
     
-    <img style={style.imagenstyle} src = {logo} alt=""  />
+
+    <Link to="/"> <img style={style.imagenstyle} src = {logo} alt=""/></Link>
+
+
     <h1 style ={style.h2Style}>TIENDA SHOP</h1>
     {categories.map((category) => <NavLink key={category.id} to={category.route}>{category.name}</NavLink>)}
     <Link to="./Cart.js"><CartWidget /></Link> 
