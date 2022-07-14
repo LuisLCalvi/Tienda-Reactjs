@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import ItemListContainer from './Containers/ItemListContainer';
@@ -17,7 +16,7 @@ function App() {
         <Route path="/" element={<ItemListContainer/>} />
         <Route path="/category/:categoryId" element={<ItemListContainer />}/>
         <Route path="/product/:productId" element={<ItemDetailsContainer />}/>
-        <Route path="./Components/NavBar/Cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
   )   

@@ -21,14 +21,13 @@ return (
 
     
     <nav style={style.navStyle}>
-    
 
     <Link to="/"> <img style={style.imagenstyle} src = {logo} alt=""/></Link>
-
-
     <h1 style ={style.h2Style}>TIENDA SHOP</h1>
     {categories.map((category) => <NavLink key={category.id} to={category.route}>{category.name}</NavLink>)}
-    <Link to="./Cart.js"><CartWidget /></Link> 
+    <Link to="/cart"><CartWidget /></Link>
+
+    
     </nav>
     
         
@@ -48,8 +47,8 @@ export default NavBar
 const style = {
 
     imagenstyle:{
-        width: '7%',
-        heigth: '7%',
+        width: '17%',
+        heigth: '17%',
     },
 
     h2Style:{

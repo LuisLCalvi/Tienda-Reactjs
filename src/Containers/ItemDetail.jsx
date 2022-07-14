@@ -28,7 +28,7 @@ const onAdd = ({contador}) =>{
 
                 {!finalized 
                 ? <ItemCount initial={1} stock={8} onAdd={onAdd} />
-                :<Link to= "../Components/NavBar/Cart.js">
+                :<Link to= "/Cart">
                     <button>Finalizar compra</button>
                 </Link> }
 
