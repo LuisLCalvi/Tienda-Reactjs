@@ -1,17 +1,20 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Link } from 'react-router-dom'
 import ItemCount from '../Components/NavBar/ItemCount'
-
+import { cartContext } from '../Context/CartContext';
 
 
 const ItemDetail = ({ product }) => {
 
-const [finalized, setFinalized] = useState(false)
+    const [buyFinalized, setBuyFinalized] = useState(false)
+    
+    const { addProduct } = useContext(cartContext);
 
-const onAdd = ({contador}) =>{
-    setFinalized (true);
-    console.log ("se agrego al carrito", contador)
-}
+    const onAdd = (contador) => {
+    addProduct({...product, qty: contador});
+    setBuyFinalized(true);
+    }
+
 
 
     return (
@@ -26,17 +29,13 @@ const onAdd = ({contador}) =>{
 
                 </div>
 
-                {!finalized 
-                ? <ItemCount initial={1} stock={8} onAdd={onAdd} />
-                :<Link to= "/Cart">
-                    <button>Finalizar compra</button>
-                </Link> }
-
-
-                
-            </div>
-        </div>
-    );
+            {buyFinalized ? <Link to="/cart">
+            <button>Finalizar compra</button>
+            </Link>
+        : <ItemCount initial={1} stock={10} onAdd={onAdd} />}
+    </div>
+    </div>
+);
 };
 
 const styles = {

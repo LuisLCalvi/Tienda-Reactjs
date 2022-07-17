@@ -19,9 +19,6 @@ const ItemCount = ({ stock, onAdd, initial = 1 }) => {
     const agregarAlCarrito = () =>{
         onAdd (contador);
         
-        // contador <= 2 && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "productos")
-
-        // contador = initial && contador < 10 && console.log ("Gracias acabas de realizar una compra de" + " " + contador + " " + "producto")
     }
 
     return (
