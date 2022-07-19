@@ -10,8 +10,11 @@ const ItemDetail = ({ product }) => {
     
     const { addProduct } = useContext(cartContext);
 
+
     const onAdd = (contador) => {
+
     addProduct({...product, qty: contador});
+
     setBuyFinalized(true);
     }
 
@@ -31,6 +34,7 @@ const ItemDetail = ({ product }) => {
 
             {buyFinalized ? <Link to="/cart">
             <button>Finalizar compra</button>
+
             </Link>
         : <ItemCount initial={1} stock={10} onAdd={onAdd} />}
     </div>

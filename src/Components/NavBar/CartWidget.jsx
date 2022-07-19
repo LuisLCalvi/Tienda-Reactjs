@@ -5,13 +5,13 @@ import { cartContext } from '../../Context/CartContext';
 
 const CartWidget = () =>{
 
-    const { qtyProduct } = useContext(cartContext);
+    const { qtyProducts } = useContext(cartContext);
 
 
     return (
         <button>
             <LocalGroceryStoreIcon color="primary" fontSize="large" />
-            <p>{qtyProduct}</p>
+            <p>{ qtyProducts }</p>
 
         </button>
         

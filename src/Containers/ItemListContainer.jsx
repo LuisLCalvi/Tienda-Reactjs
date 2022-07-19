@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = () => {
 
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
 
     const { categoryId } = useParams();
 
@@ -19,13 +19,13 @@ export const ItemListContainer = () => {
             : 'https://fakestoreapi.com/products'
         fetch(URL)
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => setProducts(data))
             .catch(err => console.log(err))
     }, [categoryId]);
 
     return (
         <>
-            <ItemList products={product} />
+            <ItemList products={products} />
 
         </>
     )
