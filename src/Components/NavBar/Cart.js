@@ -31,12 +31,12 @@ return (
             products.map(product => (
             <tr key={product.id}>
                 <td style={style.tableTitleStyle}>{product.title}</td>
-                <td style={style.tableQtyStyle}>{qtyProducts}</td>
+                <td style={style.tableQtyStyle}>{product.qty}</td>
                 <td style={style.tableTitleStyle}>{product.price}</td>
-                <td style={style.tableTitleStyle}>{qtyProducts * product.price}</td>
+                <td style={style.tableTitleStyle}>{product.qty * product.price}</td>
                 <td style={style.buttonDelete}> <button  onClick={() => deleteProduct(product)}><RemoveIcon />
                 </button></td>
-                <td style={style.tableTitleStyle}>  <Link to={`/detail/${product.id}`} >Ver producto</Link></td>           
+                <td style={style.tableTitleStyle}>  <Link to={`/product/${product.id}`} >Ver producto</Link></td>           
             </tr>
             ))
         }
@@ -55,11 +55,14 @@ return (
         <button  onClick={clear} style={style.bottomStyle}>Vaciar</button>
         </div>
         <div>
-        {qtyProducts === 0 ? <Link to="/"><button>Volver</button></Link> : <Link to="/CartBuyFinish"><button>Finalizar Compra</button></Link>}
+        {qtyProducts === 0 ? <Link to="/"><button>Volver</button></Link> : 
+        <Link to="/CartFinish"><button>Finalizar Compra</button></Link>}
         </div>
         
         
     </main>
+
+    
     </>
 )
 }
