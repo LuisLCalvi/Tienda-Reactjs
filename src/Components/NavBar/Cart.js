@@ -34,7 +34,7 @@ return (
                 <td style={style.tableQtyStyle}>{product.qty}</td>
                 <td style={style.tableTitleStyle}>{product.price}</td>
                 <td style={style.tableTitleStyle}>{product.qty * product.price}</td>
-                <td style={style.buttonDelete}> <button  onClick={() => deleteProduct(product)}><RemoveIcon />
+                <td style={style.buttonDelete}> <button  onClick={() => deleteProduct(product.id)}><RemoveIcon />
                 </button></td>
                 <td style={style.tableTitleStyle}>  <Link to={`/product/${product.id}`} >Ver producto</Link></td>           
             </tr>

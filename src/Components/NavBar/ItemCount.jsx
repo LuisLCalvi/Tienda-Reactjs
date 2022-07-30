@@ -52,7 +52,7 @@ const style = {
         display: 'flex',
         justifyContent: 'space-between',
         marginBottom: '0',
-        height: '20px',
+        height: '70px',
         padding: '5px',
         backgroundColor: 'rgb(235, 235, 235)',
     },

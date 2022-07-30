@@ -11,6 +11,7 @@ const CartCustomProvider = ({ children }) => {
     const [qtyProducts, setQtyProducts] = useState(0);
 
     const getQtyProducts = () => {
+
         let qty = 0;
         products.forEach(product =>{
             qty += product.qty;
@@ -42,7 +43,7 @@ const CartCustomProvider = ({ children }) => {
     }
 
     const deleteProduct = (id) => {
-        setProducts(products.filter(products => products.id===id));
+        setProducts(products.filter(products => products.id !==id));
 
         getQtyProducts();
 
