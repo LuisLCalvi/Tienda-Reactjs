@@ -70,6 +70,7 @@ const CartFinish = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     finalizarCompra();
+    console.log(finalizarCompra);
     
   }
 
