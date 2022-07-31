@@ -21,22 +21,23 @@ const ItemDetail = ({ product }) => {
 
 
     return (
+        
         <div style={styles.infoContainer}>
             <img style={styles.img} src={product.image} alt={product.title} />
             <div style={styles.infoTextContainer}>
-                <div style={styles.infoText}>
-                    <h1>{product.title}</h1>
-                    <h4>${product.price}</h4>
-                    <p>{product.description}</p>
-                    
-
-                </div>
+            <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.title}</h5>
+        <h4 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">${product.price}</h4>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
+    </div>
 
             {buyFinalized ? <Link to="/cart">
-            <button>Finalizar compra</button>
+                
+            <button class="text-gray-900 py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                Finalizar compra</button>
 
             </Link>
-        : <ItemCount initial={1} stock={10} onAdd={onAdd} />}
+        : <ItemCount initial={1} stock={50} onAdd={onAdd} />}
     </div>
     </div>
 );
@@ -47,23 +48,14 @@ const styles = {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: '15px'
     },
     img: {
-        width: "30%"
+        width: "30%",
+        marginTop: '15px'
     },
-    infoTextContainer: {
-        display: "flex",
-        flexDirection: "column",
-    },
-    infoText: {
-        fontFamily: 'arial',
-        padding: "10px",
-        marging: "10px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-    }
+
 };
 
 export default ItemDetail

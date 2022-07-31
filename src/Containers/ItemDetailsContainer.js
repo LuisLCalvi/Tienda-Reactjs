@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase'
 import { doc, getDoc, collection } from 'firebase/firestore'
@@ -9,6 +10,8 @@ export const ItemDetailsContainer = () => {
     const [product, setProduct] = useState([]);
 
     const { productId } = useParams();
+    const [loaded, setLoaded] = useState(true)
+
 
     useEffect(() => {
         
@@ -22,12 +25,12 @@ export const ItemDetailsContainer = () => {
             })
         })
         .catch(err => console.log(err))
-        //.finally(() => setLoaded(false))
+        .finally(() => setLoaded(false))
     }, [productId]);
 
     return (
         <>
-        <ItemDetail product={product} />
+        {loaded ? <CircularProgress color="success" /> : <ItemDetail product={product} />}
         </>
     )
 }

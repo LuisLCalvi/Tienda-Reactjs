@@ -2,6 +2,8 @@ import React, {useState} from "react";
 
 
 
+
+
 const ItemCount = ({ stock, onAdd, initial = 1 }) => {
 
     const [contador, setContador] = useState (initial)
@@ -29,7 +31,7 @@ const ItemCount = ({ stock, onAdd, initial = 1 }) => {
                 <p style={style.containerContador}> { contador } </p>
                 <button onClick={agregar}>+</button>
             </div>
-            <button onClick={agregarAlCarrito}>Agregar al Carrito</button>
+            <button onClick={agregarAlCarrito} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" >Agregar al Carrito </button>
 
         </div>
         </>
@@ -58,7 +60,8 @@ const style = {
     },
     containerContador:{
         marginTop: '-1px',
-    }
+    },
+
 }
 
 export default ItemCount

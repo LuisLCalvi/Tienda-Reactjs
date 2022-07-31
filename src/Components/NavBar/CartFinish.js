@@ -4,6 +4,8 @@ import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc} from "fireb
 import { cartContext } from '../../Context/CartContext';
 import swal from 'sweetalert';
 import './CartFinish.css'
+
+
 const CartFinish = () => {
 
     const{ products, clear, totalPrice, qtyProducts } = useContext(cartContext);
@@ -21,10 +23,8 @@ const CartFinish = () => {
       })
       .then(({id}) => {
         console.log(id);
-        let ordenid = id;
         updateStockDb(products);
         clear();
-       // enviar link a orden
        ;
       })
       .catch(error => console.err);     
@@ -48,7 +48,11 @@ const CartFinish = () => {
             stock: result.data().stock - qtyProducts,
          }
           updateDoc(referenceDoc, product)
-          product.stock < 0 ? swal("No hay stock suficiente", "Gracias", "Error") : swal("Compra realizada", "Gracias", "success");
+          product.stock < 0 ? swal("No hay stock suficiente", "Gracias", "Error") : swal("Compra realizada",
+        "Gracias", "success",
+
+        
+        );
       })
     } 
 
@@ -72,28 +76,48 @@ const CartFinish = () => {
   return (
     <>
     
-    <div className="container">
-      <h2 >Formulario de Envio </h2>
-      <form onSubmit={onSubmit}>
-        <label htmlFor='Name'>Nombre Completo</label>
-        <input type="text" value={form.name} name= "nombre" onChange={handleChange} />
-        <label htmlFor='email'>Email</label>
-        <input type="text" value={form.email} name="email" onChange={handleChange} />
-        <label htmlFor='phone'>Telefono</label>
-        <input type="text" value={form.phone} name="phone" onChange={handleChange} />
-        <label htmlFor='address'>Direccion</label>
-        <input type="text" value={form.address} name="address" onChange={handleChange} />
-        <label htmlFor='country'>Pais </label>
-        <input type="text" value={form.country} name="country" onChange={handleChange} />
-        <label htmlFor='state'>Provincia</label>
-        <input type="text" value={form.state} name="state" onChange={handleChange} />
-        <label htmlFor='city'>Ciudad</label>
-        <input type="text" value={form.city} name="city" onChange={handleChange} />
-        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>      
-        </form>
       
-    </div> 
-    </>
+<form onSubmit={onSubmit}>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+
+              <div>
+            <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apellido</label>
+            <input type="text" value={form.lastname} id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required="" onChange={handleChange}/>
+        </div>
+        <div>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre</label>
+            <input type="text" value={form.name} id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required="" onChange={handleChange}/>
+        </div>
+        <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+        <input type="email" value={form.email} id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required="" onChange={handleChange}/>
+    </div>
+        <div>
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Teléfono</label>
+            <input type="tel" value={form.phone} id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="codigo de area + numero" required="" onChange={handleChange}/>
+        </div>
+
+        <div>
+            <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">País</label>
+            <input type="text" value={form.country} id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Argentina" required="" onChange={handleChange}/>
+        </div>  
+        <div>
+            <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Provincia</label>
+            <input type="text" value={form.state} id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Entre Ríos" required="" onChange={handleChange}/>
+        </div>
+        <div>
+            <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 ">Ciudad</label>
+            <input type="text" value={form.city} id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Parana" required="" onChange={handleChange}/>
+        </div>
+
+        
+    </div>
+
+    <button type="submit" class="text-gray-900 py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Finalizar</button>
+</form>
+
+      
+      </>
   );
 
   };
