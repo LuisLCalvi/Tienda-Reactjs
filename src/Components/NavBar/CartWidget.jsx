@@ -11,7 +11,7 @@ const CartWidget = () =>{
     return (
         <button>
             <LocalGroceryStoreIcon color="primary" fontSize="large" />
-            <p>{ qtyProducts }</p>
+            <p> { qtyProducts === 0 ?  "Aun no hay productos" : qtyProducts }    </p>
 
         </button>
         
