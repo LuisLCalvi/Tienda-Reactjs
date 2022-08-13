@@ -4,7 +4,7 @@
 *Es una sitio que simula una e-commerce, desarrollada en React Js.*
 #### Se construyó usando [Fake Store](https://fakestoreapi.com/)
 
-##IMAGENES
+## IMAGENES
 
 ![principal](./src/img/principal.png)
 
@@ -12,7 +12,7 @@
 
 ![carrito](./src/img/carrito.png)
 
-##CARACTERISTICAS
+## CARACTERISTICAS
 
 - Consume principalmente la FakeStore Api para obtener listado y detalles de productos.
 
@@ -20,7 +20,7 @@
 - Obtencion de datos desde base de datos (Firebase)
 
 
-##HERRAMIENTAS UTILZIADAS
+## HERRAMIENTAS UTILZIADAS
 
 - React Js
 - CSS
@@ -28,7 +28,7 @@
 - FireBase
 - Fake Store API
 
-#¿COMO LO PRUEBO?
+# ¿COMO LO PRUEBO?
 
 - ### Clona el repositorio  
 

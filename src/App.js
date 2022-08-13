@@ -23,6 +23,7 @@ function App() {
         <Route path="/product/:productId" element={<ItemDetailsContainer />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/CartFinish" element={<CartFinish />} />
+
       </Routes>
       </CartCustomProvider>
 

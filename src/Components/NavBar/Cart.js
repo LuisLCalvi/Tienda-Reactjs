@@ -78,7 +78,7 @@ return (
         {qtyProducts === 0 ? <h1>No hay productos agregados, por favor vuelva  <Link to="/"><button class="text-gray-900 py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Volver</button></Link> </h1>: 
         <div>
             <Link to="/CartFinish"><button class="text-gray-900 py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800 " >Finalizar Compra</button></Link>
-            <button  onClick={clear} style={style.bottomStyle} class="text-gray-900  py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Vaciar</button>
+            <button  onClick={clear} class="text-gray-900  py-2 px-4 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Vaciar</button>
         </div>
                }
         </div>
@@ -96,43 +96,3 @@ return (
 
 export default Cart;
 
-
-const style ={
-
-    mainStyle: {
-        display: 'grid',
-        fontFamily: 'arial',
-        justifyContent: 'center',
-        marginTop: '17px',
-        backgroundColor: 'rgb(235, 235, 235)'
-
-    },
-
-    tableStyle:{
-        // display: 'flex',
-        // flexDirection: 'row',
-        width: 'auto',
-    },
-
-    tableTitleStyle:{
-        padding: '10px',
-        textDecoration: 'none',
-
-
-    },
-
-
-    productsStyle:{
-        marginTop: '25px',
-        padding: '20px',
-
-    },
-
-    bottomStyle:{
-        marginBottom: '14px',
-    }
-
-
-
-    
-}

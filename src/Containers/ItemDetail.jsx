@@ -28,6 +28,7 @@ const ItemDetail = ({ product }) => {
             <div class="flex flex-col justify-between p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.title}</h5>
         <h4 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">${product.price}</h4>
+        <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-600 dark:text-white">Stock disponible: {product.stock}</h5>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
     </div>
 
@@ -37,7 +38,7 @@ const ItemDetail = ({ product }) => {
                 Finalizar compra</button>
 
             </Link>
-        : <ItemCount initial={1} stock={50} onAdd={onAdd} />}
+        : <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />}
     </div>
     </div>
 );
