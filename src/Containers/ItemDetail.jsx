@@ -6,6 +6,9 @@ import { cartContext } from '../Context/CartContext';
 
 const ItemDetail = ({ product }) => {
 
+    const{  qtyProducts } = useContext(cartContext);
+
+
     const [buyFinalized, setBuyFinalized] = useState(false)
     
     const { addProduct } = useContext(cartContext);
@@ -28,7 +31,7 @@ const ItemDetail = ({ product }) => {
             <div class="flex flex-col justify-between p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.title}</h5>
         <h4 class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">${product.price}</h4>
-        <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-600 dark:text-white">Stock disponible: {product.stock}</h5>
+        <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-600 dark:text-white">Stock disponible: {product.stock - qtyProducts}</h5>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
     </div>
 
