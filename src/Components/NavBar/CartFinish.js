@@ -4,6 +4,7 @@ import{ addDoc, doc, collection, serverTimestamp, getDoc, updateDoc} from "fireb
 import { cartContext } from '../../Context/CartContext';
 import swal from 'sweetalert';
 import './CartFinish.css'
+import { formGroupClasses } from "@mui/material";
 
 
 const CartFinish = () => {
@@ -52,9 +53,8 @@ const CartFinish = () => {
         "Compra realizada",
         "Gracias", "success",
         
-
-        
-        );
+        );               
+    
       })
     } 
 
@@ -66,18 +66,28 @@ const CartFinish = () => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
+
+
     });
+
   }
 
   const  onSubmit = (e) => {
     e.preventDefault();
     finalizarCompra();
     console.log(finalizarCompra);
+  
     
   }
 
+  
+
+
+
   return (
     <>
+
+
     
       
 <form onSubmit={ onSubmit }>
@@ -86,20 +96,20 @@ const CartFinish = () => {
         <div>
             <label htmlFor='Name' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apellido</label>
 
-          <input type="text" value={form.lastName} name= "apellido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required="" onChange={handleChange} />
+          <input type="text" value={form.lastName } name= "apellido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Doe" required onChange={handleChange} />
         </div>
 
         <div>
         <label htmlFor='Name' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombre</label>
 
-        <input type="text" value={form.name} name= "nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required="" onChange={handleChange} />
+        <input type="text" value={form.name } name= "nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John" required onChange={handleChange} />
 
         </div>
 
         <div>
           <label htmlFor='email' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
 
-        <input type="text" value={form.email} name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required="" onChange={handleChange} />
+        <input type="text" value={form.email ?? ''} name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="john.doe@company.com" required onChange={handleChange} />
 
         </div>
 
@@ -107,14 +117,14 @@ const CartFinish = () => {
         <div>
         <label htmlFor='phone' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Telefono</label>
         
-        <input type="text" value={form.phone} name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="codigo de area + numero" required="" onChange={handleChange} />
+        <input type="text" value={form.phone ?? ''} name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="codigo de area + numero" required onChange={handleChange} />
           
         </div>
 
         
         <div>
                   <label htmlFor='address' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Direccion</label>
-        <input type="text" value={form.address} name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Calle falsa 123" required="" onChange={handleChange} />
+        <input type="text" value={form.address ?? ''} name="address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Calle falsa 123" required onChange={handleChange} />
           
         </div>
 
@@ -122,20 +132,20 @@ const CartFinish = () => {
 
         <label htmlFor='country' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pais </label>
 
-        <input type="text" value={form.country} name="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Argentina" required="" onChange={handleChange}/>
+        <input type="text" value={form.country ?? ''} name="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Argentina" required onChange={handleChange}/>
           
         </div>
 
         <div>
         <label htmlFor='state' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Provincia</label>
-        <input type="text" value={form.state} name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Entre Rios" required="" onChange={handleChange}/>
+        <input type="text" value={form.state ?? ''} name="state" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Entre Rios" required onChange={handleChange}/>
 
         </div>
 
         
         <div>
         <label htmlFor='city' class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ciudad</label>
-        <input type="text" value={form.city} name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Parana" required="" onChange={handleChange} />
+        <input type="text" value={form.city ?? ''} name="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Parana" required onChange={handleChange} />
           
         </div>
           
